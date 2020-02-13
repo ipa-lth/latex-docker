@@ -50,9 +50,10 @@ edit ./latexdockercmd.sh
 
 # Or make multiple passes (does not start container twice)
 ../latexdockercmd.sh /bin/sh -c "pdflatex main.tex && pdflatex main.tex"
+
+# Or as I like to compile my latex with glossaries and externalized tikz (modify: main.tex and path to latexdockercmd.sh)
+time (~/tools/latex-docker/latexdockercmd.sh latexmk -cd -f -shell-escape -pdf main.tex; ~/tools/latex-docker/latexdockercmd.sh makeglossaries main; ~/tools/latex-docker/latexdockercmd.sh ~latexmk -cd -f -shell-escape -pdf main.tex; notify-send -i face-wink "Latex done")
 ```
-# Or as I like to compile my stuff (lth)
-time (~/tools/latex-docker/latexdockercmd.sh latexmk -cd -f -shell-escape -pdf Diss_Main.tex; ~/tools/latex-docker/latexdockercmd.sh makeglossaries Diss_Main; ~/tools/latex-docker/latexdockercmd.sh ~latexmk -cd -f -shell-escape -pdf Diss_Main.tex; notify-send -i face-wink "Latex done")
 
 Requirements
 ------------
